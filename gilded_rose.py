@@ -13,6 +13,7 @@ class Item:
     AGED = "Aged Brie"
     BACKSTAGE_PASSES = "Backstage passes to a TAFKAL80ETC concert"
     LEGENDARY = "Sulfuras, Hand of Ragnaros"
+    CONJURED = "Conjured"
 
     def __init__(self, name, sell_in, quality):
         self.name = name
@@ -61,3 +62,6 @@ class Item:
         if Item.LEGENDARY == self.name:
             return
         self.sell_in -= 1
+
+    def is_conjured(self):
+        return self.name.startswith(Item.CONJURED)
