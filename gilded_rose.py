@@ -37,6 +37,10 @@ class GildedRose(object):
 
 
 class Item:
+    AGED = "Aged Brie"
+    BACKSTAGE_PASSES = "Backstage passes to a TAFKAL80ETC concert"
+    LEGENDARY = "Sulfuras, Hand of Ragnaros"
+
     def __init__(self, name, sell_in, quality):
         self.name = name
         self.sell_in = sell_in
