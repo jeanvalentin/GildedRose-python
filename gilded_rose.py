@@ -46,9 +46,12 @@ class Item:
         if Item.LEGENDARY == self.name:
             return
 
-        self.quality -= 1
+        quality_decrease = 1
+        if self.is_conjured():
+            quality_decrease *= 2
+        self.quality -= quality_decrease
         if self.sell_in <= 0:
-            self.quality -= 1
+            self.quality -= quality_decrease
 
     def fix_quality(self):
         if Item.LEGENDARY == self.name:
