@@ -100,5 +100,21 @@ class GildedRoseTest(unittest.TestCase):
         self.assertEqual(-1, items[0].sell_in)
         self.assertEqual(0, items[0].quality)
 
+    def test_item_conjured(self):
+        items = [Item("Conjured Mana Cake", 3, 6)]
+        gilded_rose = GildedRose(items)
+        gilded_rose.update_quality()
+        self.assertEqual("Conjured Mana Cake", items[0].name)
+        self.assertEqual(2, items[0].sell_in)
+        self.assertEqual(4, items[0].quality)
+
+    def test_item_conjured_sell_in_zero(self):
+        items = [Item("Conjured +5 Dexterity Vest", 0, 6)]
+        gilded_rose = GildedRose(items)
+        gilded_rose.update_quality()
+        self.assertEqual("Conjured +5 Dexterity Vest", items[0].name)
+        self.assertEqual(-1, items[0].sell_in)
+        self.assertEqual(2, items[0].quality)
+
 if __name__ == '__main__':
     unittest.main()
